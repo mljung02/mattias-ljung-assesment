@@ -29,6 +29,10 @@ router.post('/articles', function (req, res, next) {
     } else {
       article.color = 'black';
     }
+    if (article.background.trim() === '') {
+      article.background = "http://www.pixeden.com/media/k2/galleries/165/003-subtle-light-pattern-background-texture-vol5.jpg";
+      article.color = 'black';
+    }
     article.date = Date.now()
     articles.insert(article).then(function () {
       res.redirect('/articles')
@@ -56,10 +60,15 @@ router.post('/articles/:id', function (req, res, next) {
       res.render('edit', {article: article, pageTitle: "Edit "+article.title})
     })
   } else {
+    
     var article = req.body
     if (req.body.dark) {
       article.color = 'white';
     } else {
+      article.color = 'black';
+    }
+    if (article.background.trim() === '') {
+      article.background = "http://www.pixeden.com/media/k2/galleries/165/003-subtle-light-pattern-background-texture-vol5.jpg";
       article.color = 'black';
     }
     article.date = Date.now()
