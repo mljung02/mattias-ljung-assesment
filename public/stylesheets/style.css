@@ -1,8 +1,58 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(https://raw.githubusercontent.com/mljung02/express-crud-assessment/master/congruent_outline.png?token=AExAVlAln0mid4DmTzuTaf_jd0EtiWpjks5VukOTwA%3D%3D);
 }
 
 a {
   color: #00B7FF;
+}
+
+.head{
+  text-align: right;
+  background-image: url(https://unsplash.imgix.net/photo-1429198739803-7db875882052?dpr=2&fit=crop&fm=jpg&h=1575&q=75&w=1050);
+  height:130px;
+  padding: 28px;
+  box-sizing:border-box;
+}
+
+.body{
+  margin-top: 15px;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: white;
+  height:550px
+}
+
+.left {
+  display: inline-block;
+  float: left;
+}
+
+.right {
+  padding-left: 10%;
+  display: inline-block;
+  float: left;
+  width:70%;
+}
+
+.bodytitle{
+  border-bottom: 1px solid grey;
+}
+
+.down{
+  margin-top: 130px;
+}
+
+.text {
+  width: 100%
+}
+
+.textarea{
+  width: 100%
+}
+
+.row {
+  padding-top: 20px;
 }

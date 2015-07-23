@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  div.head
+    h1 The Zine    
+  div.body
+    div.bodytitle
+      h2 New Article
+    div
+      form(method="POST" action="/articles")
+        div.left
+          div.row
+            label(for="title") Title
+          div.row
+            label(for="background") Background URL
+          div.row
+            p
+          div.row
+            label(for="excerpt") Excerpt
+          div.row.down
+            label(for="article") Body
+        div.right
+          div.row
+            input.text(type="text" id="title" name="title")
+          div.row
+            input.text(type="text" id="background" name="background")
+          div.row
+            input.check(type="checkbox" id="dark" name="dark")
+            span
+              label(for="dark") Background image has dark colors
+          div.row
+            textarea.textarea(id='exceprt' name="excerpt" rows=10)
+          div.row
+            textarea.textarea(id="article" name="article" rows=10)
+          div.row
+            button(type='submit') Add Article
