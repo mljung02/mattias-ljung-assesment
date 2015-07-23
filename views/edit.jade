@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  div.head
+    a.headlink(href='/articles')
+      h1 The Zine     
+  div.body
+    div.bodytitle
+      h2 Edit Article
+    div
+      if article.errors
+        p Please correct the errors below:
+        each error in article.errors
+          ul
+            li= error
+      div.left
+        div.row
+          label(for="title") Title
+        div.row
+          label(for="background") Background URL
+        div.row
+          p
+        div.row
+          label(for="excerpt") Excerpt
+        div.row.down
+          label(for="article") Body
+      div.right
+        form(method="POST" action="/articles/"+article._id)
+          div.row
+            input.text(type="text" id="title" name="title" value=article.title)
+          div.row
+            input.text(type="text" id="background" name="background" value=article.background)
+          div.row
+            input.check(type="checkbox" id="dark" name="dark" checked=article.dark)
+            span
+              label(for="dark") Background image has dark colors
+          div.row
+            textarea.textarea(id='exceprt' name="excerpt" rows=10)= article.excerpt
+          div.row
+            textarea.textarea(id="article" name="article" rows=10)= article.article
+          div.row
+            button(type='submit') Edit Article
+        div.deletes
+          form(method="POST" action="/articles/"+article._id+"/delete")
+            button.delete(type='submit') Delete

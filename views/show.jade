@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.head
+    a.headlink(href='/articles')
+      h1 The Zine    
+  div.bodyarticle
+    div.title(style="background-image:url('#{article.background}')")
+      h2(style='color: #{article.color}')= article.title
+        div.righty
+          a.titlelink(href='/articles/'+article._id+'/edit' style='color: #{article.color}') Edit
+    each p in article.articlep
+      div.articlep= p

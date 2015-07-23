@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div.head
+    a.headlink(href='/articles')
+      h1 The Zine    
+  div.bodyarticle
+    div
+      each article in articles
+        div.article      
+          div.title(style="background-image:url('#{article.background}')")
+            a.titlelink(href='/articles/'+article._id style='color: #{article.color}')
+              h2= article.title
+          div.excerpt #{article.excerpt}
+    div.new
+      a.titlelink(href='/articles/new' style='color: black') + Add a new article

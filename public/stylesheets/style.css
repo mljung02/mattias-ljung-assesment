@@ -21,8 +21,25 @@ a {
   padding-top: 10px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom:10px;
   background-color: white;
-  height:550px
+  overflow: hidden;
+}
+
+.bodyarticle {
+  margin-top: 15px;
+  background-color: white;
+}
+
+.excerpt {
+  padding: 20px;
+}
+
+.articlep {
+  padding-left:20px;
+  padding-right:20px;
+  padding-top:10px;
+  padding-bottom:10px;
 }
 
 .left {
@@ -55,4 +72,44 @@ a {
 
 .row {
   padding-top: 20px;
+}
+
+.title {
+  height: 75px;
+  width: 100%;
+  box-sizing:border-box;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.titlelink {
+  text-decoration: none;
+}
+
+.headlink {
+  text-decoration: none;
+  color: black;
+}
+
+.new {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.righty{
+  float: right;
+  display:inline-block;
+  text-aling:right;
+  padding-right: 20px;
+}
+
+.deletes{
+  padding-top: 10px;
+}
+
+.delete{
+  background:red;
+  text:120%;
+  color:white;
 }
