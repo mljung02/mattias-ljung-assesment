@@ -11,18 +11,17 @@ router.get('/', function(req, res, next) {
 
 router.get('/articles', function (req,res,next) {
   articles.find({},{sort: {date: -1}}).then(function (articles) {
-    console.log(articles)
-    res.render('articles', {articles: articles})
+    res.render('articles', {articles: articles, pageTitle: "Articles"})
   })
 })
 
 router.get('/articles/new', function (req, res, next) {
-  res.render('new')
+  res.render('new', {pageTitle: "New Article"})
 })
 
 router.post('/articles', function (req, res, next) {
   if(validation(req.body).length > 0) {
-    res.render('new', {errors: validation(req.body)})
+    res.render('new', {errors: validation(req.body), pageTitle: "New Article"})
   } else {
     var article = req.body
     if (req.body.dark) {
@@ -40,13 +39,13 @@ router.post('/articles', function (req, res, next) {
 router.get('/articles/:id',function (req, res, next) {
   articles.findOne({_id: req.params.id}).then(function (article) {
     article.articlep= article.article.split('\r\n\r')
-    res.render('show', {article: article})
+    res.render('show', {article: article, pageTitle: article.title})
   })
 })
 
 router.get('/articles/:id/edit', function (req, res, next) {
   articles.findOne({_id: req.params.id}).then(function (article) {
-    res.render('edit', {article: article})
+    res.render('edit', {article: article, pageTitle: "Edit "+article.title})
   })
 })
 
@@ -54,7 +53,7 @@ router.post('/articles/:id', function (req, res, next) {
   if(validation(req.body).length > 0) {
     articles.findOne({_id: req.params.id}).then(function (article) {
       article.errors = validation(req.body)
-      res.render('edit', {article: article})
+      res.render('edit', {article: article, pageTitle: "Edit "+article.title})
     })
   } else {
     var article = req.body
